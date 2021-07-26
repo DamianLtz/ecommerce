@@ -1,3 +1,41 @@
+.navbar-light .navbar-toggler,.navbar-toggler:focus
+    border-color: transparent
+
+.navbar-toggler:focus
+    box-shadow: none
+
 .logo
     width: 32px
     height: 32px
+
+.navbar-light
+    .navbar-nav
+        .nav-link
+            margin: 0 1rem
+            color: $texto-enlaces
+            font-weight: 400
+
+.dropdown-menu
+    border-radius: 1rem
+
+.log-in
+    color: $bg-blue
+    background-image: linear-gradient(currentColor, currentColor)
+    background-position: 0% 100%
+    background-repeat: no-repeat
+    background-size: 0% 2px
+    transition: background-size .3s
+    &:hover
+        color: $bg-blue
+        background-size: 100% 2px
+
+.form-style
+    background-color: #F4F4F4
+    border-radius: 30px
+    .form-control
+        border: none
+        background-color: inherit
+        border-radius: inherit
+    .form-control:focus
+        border-color: transparent
+        box-shadow: none
