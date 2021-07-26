@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-commerce</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 position-fixed fixed-top">
+            <div class="container-lg">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/img/header/logo.svg" alt="" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorías
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Beneficios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Mis Viajes</a>
+                        </li>
+                        <li>
+                            <form class="d-flex">
+                                <input class="form-control me-2" type="text" placeholder="¿Qué estás buscando?"
+                                    aria-label="Search">
+                                <button class="btn btn-info" type="submit">Buscar</button>
+                            </form>
+                        </li>
+                    </ul>
+                    <div>
+                        <a href="#" class="text-decoration-none fw-bold text-info">
+                            Ingresar a mi Cuenta
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="container-fluid g-0">
+            <div class="carousel-proto img-fluid"></div>
+        </section>
+        <section class="container-lg mt-5">
+            <div class="row justify-content-md-start justify-content-sm-center categorias-container">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 gy-4 gy-lg-0">
+                    <div class="btn-categoria-container">
+                        <div class="btn-categoria">
+                            <img src="assets/img/main/tecnologia.svg" alt="">
+                            <p>Tecno</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 gy-4 gy-lg-0">
+                    <div class="btn-categoria-container">
+                        <div class="btn-categoria">
+                            <img src="assets/img/main/electro.svg" alt="">
+                            <p>Electro</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 gy-4 gy-lg-0">
+                    <div class="btn-categoria-container">
+                        <div class="btn-categoria">
+                            <img src="assets/img/main/hogar.svg" alt="">
+                            <p>Hogar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 gy-4 gy-lg-0">
+                    <div class="btn-categoria-container">
+                        <div class="btn-categoria">
+                            <img src="assets/img/main/bazar.svg" alt="">
+                            <p>Bazar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 gy-4 gy-lg-0">
+                    <div class="btn-categoria-container">
+                        <div class="btn-categoria">
+                            <img src="assets/img/main/beauty.svg" alt="">
+                            <p>Beauty</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 gy-4 gy-lg-0">
+                    <div class="btn-categoria-container">
+                        <div class="btn-categoria">
+                            <img src="assets/img/main/tiempo-libre.svg" alt="">
+                            <p>Tiempo libre</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class="container-lg mt-5">
+            <div class="d-flex align-items-center justify-content-lg-start justify-content-center px-lg-4 px-4 pb-4">
+                <h2>A mi alcance con puntos</h2>
+                <a href="#" class="text-info text-decoration-none ms-2 ms-sm-4">Ver todos</a>
+            </div>
+            <div class="row justify-content-lg-start justify-content-md-center cards-container">
+                <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
+                    <div class="card">
+                        <img src="assets/img/main/test.jpg" class="card-img-top img-fluid" alt="">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center card-descuento">
+                                <button type="button" class="btn btn-danger">- 15% OFF</button>
+                                <p class="text-muted text-decoration-line-through">
+                                    $5,763.53
+                                </p>
+                            </div>
+                            <h5 class="card-title">Pava Electrica Philips</h5>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text">$1255</p>
+                            </div>
+                            <p class="text-muted text-uppercase pt-3 pb-2">
+                                Puntos + Pesos
+                            </p>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text text-muted fw-light">800 + $2643.45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
+                    <div class="card">
+                        <img src="assets/img/main/test.jpg" class="card-img-top img-fluid" alt="">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center card-descuento">
+                                <button type="button" class="btn btn-danger">- 15% OFF</button>
+                                <p class="text-muted text-decoration-line-through">
+                                    $5,763.53
+                                </p>
+                            </div>
+                            <h5 class="card-title">Pava Electrica Philips</h5>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text">$1255</p>
+                            </div>
+                            <p class="text-muted text-uppercase pt-3 pb-2">
+                                Puntos + Pesos
+                            </p>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text text-muted fw-light">800 + $2643.45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
+                    <div class="card">
+                        <img src="assets/img/main/test.jpg" class="card-img-top img-fluid" alt="">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center card-descuento">
+                                <button type="button" class="btn btn-danger">- 15% OFF</button>
+                                <p class="text-muted text-decoration-line-through">
+                                    $5,763.53
+                                </p>
+                            </div>
+                            <h5 class="card-title">Pava Electrica Philips</h5>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text">$1255</p>
+                            </div>
+                            <p class="text-muted text-uppercase pt-3 pb-2">
+                                Puntos + Pesos
+                            </p>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text text-muted fw-light">800 + $2643.45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
+                    <div class="card">
+                        <img src="assets/img/main/test.jpg" class="card-img-top img-fluid" alt="">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center card-descuento">
+                                <button type="button" class="btn btn-danger">- 15% OFF</button>
+                                <p class="text-muted text-decoration-line-through">
+                                    $5,763.53
+                                </p>
+                            </div>
+                            <h5 class="card-title">Pava Electrica Philips</h5>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text">$1255</p>
+                            </div>
+                            <p class="text-muted text-uppercase pt-3 pb-2">
+                                Puntos + Pesos
+                            </p>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text text-muted fw-light">800 + $2643.45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container-lg mt-5">
+            <div class="d-flex align-items-center justify-content-lg-start justify-content-center px-lg-4 px-4 pb-4">
+                <h2>A mi alcance con puntos + pesos</h2>
+                <a href="#" class="text-info text-decoration-none ms-2 ms-sm-4 text-nowrap">Ver todos</a>
+            </div>
+            <div class="row justify-content-lg-start justify-content-md-center cards-container">
+                <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
+                    <div class="card">
+                        <img src="assets/img/main/test.jpg" class="card-img-top img-fluid" alt="">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center card-descuento">
+                                <button type="button" class="btn btn-danger">- 15% OFF</button>
+                                <p class="text-muted text-decoration-line-through">
+                                    $5,763.53
+                                </p>
+                            </div>
+                            <h5 class="card-title">Pava Electrica Philips</h5>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text">$1255</p>
+                            </div>
+                            <p class="text-muted text-uppercase pt-3 pb-2">
+                                Puntos + Pesos
+                            </p>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text text-muted fw-light">800 + $2643.45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
+                    <div class="card">
+                        <img src="assets/img/main/test.jpg" class="card-img-top img-fluid" alt="">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center card-descuento">
+                                <button type="button" class="btn btn-danger">- 15% OFF</button>
+                                <p class="text-muted text-decoration-line-through">
+                                    $5,763.53
+                                </p>
+                            </div>
+                            <h5 class="card-title">Pava Electrica Philips</h5>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text">$1255</p>
+                            </div>
+                            <p class="text-muted text-uppercase pt-3 pb-2">
+                                Puntos + Pesos
+                            </p>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text text-muted fw-light">800 + $2643.45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
+                    <div class="card">
+                        <img src="assets/img/main/test.jpg" class="card-img-top img-fluid" alt="">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center card-descuento">
+                                <button type="button" class="btn btn-danger">- 15% OFF</button>
+                                <p class="text-muted text-decoration-line-through">
+                                    $5,763.53
+                                </p>
+                            </div>
+                            <h5 class="card-title">Pava Electrica Philips</h5>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text">$1255</p>
+                            </div>
+                            <p class="text-muted text-uppercase pt-3 pb-2">
+                                Puntos + Pesos
+                            </p>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text text-muted fw-light">800 + $2643.45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
+                    <div class="card">
+                        <img src="assets/img/main/test.jpg" class="card-img-top img-fluid" alt="">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center card-descuento">
+                                <button type="button" class="btn btn-danger">- 15% OFF</button>
+                                <p class="text-muted text-decoration-line-through">
+                                    $5,763.53
+                                </p>
+                            </div>
+                            <h5 class="card-title">Pava Electrica Philips</h5>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text">$1255</p>
+                            </div>
+                            <p class="text-muted text-uppercase pt-3 pb-2">
+                                Puntos + Pesos
+                            </p>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text text-muted fw-light">800 + $2643.45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container-lg mt-5">
+            <div class="d-flex align-items-center justify-content-lg-start justify-content-center pb-4">
+                <h2>Cuotas sin interés</h2>
+                <a href="#" class="text-info text-decoration-none ms-4 text-nowrap">Ver todos</a>
+            </div>
+            <div class="row justify-content-lg-start justify-content-md-center cards-container">
+                <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
+                    <div class="card">
+                        <img src="assets/img/main/test.jpg" class="card-img-top img-fluid" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">Pava Electrica Philips</h5>
+                            <h5 class="card-subtitle">Hasta 9 Cuotas de $800</h5>
+                            <p class="text-muted text-uppercase pt-3 pb-2">
+                                Puntos + Pesos
+                            </p>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text text-muted fw-light">800 + $2643.45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container mt-5">
+            <div class="row justify-content-lg-between justify-content-center">
+                <div class="col-lg-6 col-md-12 col-sm-12 rectangle-container mb-lg-0 mb-3">
+                    <div class="d-flex justify-content-evenly">
+                        <div>
+                            <h2 class="fw-normal">Lo Mejor en</h2>
+                            <h2>Electro</h2>
+                            <div>
+                                <a href="#" class="btn btn-mas">
+                                    Ver Más
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="assets/img/main/electro.png" alt="" class="img-fluid img-rectangle">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 rectangle-container-sec">
+                    <div class="d-flex justify-content-evenly">
+                        <div>
+                            <h2 class="fw-normal">Lo Mejor en</h2>
+                            <h2>Electrobelleza</h2>
+                            <div>
+                                <a href="#" class="btn btn-mas">
+                                    Ver Más
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="assets/img/main/electrobelleza.png" alt="" class="img-fluid img-rectangle">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container-lg mt-5">
+            <div class="row cards-envio-online">
+                <div class="col-lg-4 d-flex">
+                    <img src="assets/img/main/envio.svg" alt="">
+                    <div class="ps-4">
+                        <h3 class="pb-1">Envío</h3>
+                        <p>Recibí tu pedido en 10 días</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex">
+                    <img src="assets/img/main/pago.svg" alt="">
+                    <div class="ps-4">
+                        <h3 class="pb-1">Pago seguro</h3>
+                        <p>Compra 100% seguro</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex">
+                    <img src="assets/img/main/tienda.svg" alt="">
+                    <div class="ps-4">
+                        <h3 class="pb-1">Retiro en tienda</h3>
+                        <p>Más de 150 sucursales en el país</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container-lg mt-5 py-5">
+            <div class="row">
+                <div class="col-lg-4 footer-options py-3 py-lg-0">
+                    <h4>
+                        Mi Cuenta
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Mis datos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Mis canjes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Mis Direcciones
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 footer-options py-3 py-lg-0">
+                    <h4>
+                        Información de la tienda
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Argentina
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Botón de Arrepentimiento
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 footer-options py-3 py-lg-0">
+                    <h4>
+                        Ayuda
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Terminos y condiciones
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Defensa del consumidor
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h6 class="text-center text-muted pt-5">
+                Prototipo: Tienda de Puntos
+            </h6>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
