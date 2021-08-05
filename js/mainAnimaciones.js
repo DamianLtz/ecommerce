@@ -11,7 +11,7 @@ $('.dropdown').on('hide.bs.dropdown', function (e) {
     $(this).find('.dropdown-menu').first().stop(true, true).slideUp(250);
 });
 
-$(function () {
+/* $(function () {
     $(".dropdown").hover(
         function () {
             $('.dropdown-menu', this).stop(true, true).fadeIn("fast");
@@ -23,6 +23,4 @@ $(function () {
             $(this).toggleClass('open');
             $('b', this).toggleClass("caret caret-up");
         });
-});
-
-const TOUCHEVENT_COMPAT_WAIT = 50; // Time for mouse compat events to fire after touch
+}); */

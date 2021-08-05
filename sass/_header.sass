@@ -9,11 +9,14 @@
     height: 32px
 
 .navbar-light
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px
     .navbar-nav
         .nav-link
             margin: 0 1rem
             color: $texto-enlaces
             font-weight: 400
+            &:hover
+                color: $color-blue
 
 .dropdown-menu
     border-radius: 0.5rem
@@ -25,27 +28,25 @@
         padding: 1.5rem 0.8rem
         justify-content: center
         
-    div
+    .shop-cart-container
         cursor: pointer
-        margin-right: 0.5rem
         .shop-cart
             width: 26px
             height: 26px
+    div
+        .coin
+            width: 20px
+            height: 20px
             margin-right: 0.5rem
-        div
-            .coin
-                width: 20px
-                height: 20px
-                margin-right: 0.5rem
     .log-in
-        color: $bg-blue
+        color: $color-blue
         background-image: linear-gradient(currentColor, currentColor)
         background-position: 0% 100%
         background-repeat: no-repeat
         background-size: 0% 2px
         transition: background-size .3s
         &:hover
-            color: $bg-blue
+            color: $color-blue
             background-size: 100% 2px
 
 .form-style
