@@ -12,9 +12,11 @@ class Cliente {
     }
 }
 
-function SolicitarMailCliente() {
+
+
+function solicitarMailCliente() {
     let emailClienteNuevo = prompt("¿Cual es tu e-mail?")
-    while (emailClienteNuevo == "" || emailClienteNuevo == null || !emailClienteNuevo.search("@")) {
+    while (emailClienteNuevo == "" || emailClienteNuevo == null || emailClienteNuevo.search("@") === -1 || emailClienteNuevo.search(".com") === -1 || emailClienteNuevo.length <= 8) {
         alert("Error, intente nuevamente")
         emailClienteNuevo = prompt("¿Cual es tu e-mail?")
     }
@@ -80,9 +82,13 @@ function total(puntosCliente, costoProducto) {
 
 let [nombre, apellido] = datosCliente() //Devuelve el nombre y apellido ingresado del cliente.
 
+/* let nombreApellidoArray = datosCliente() // [silvana, suarez] // Devuelve el nombre y apellido ingresado del cliente.
+let nombre = nombreApellidoArray[0]
+let apellido = nombreApellido[1] */
+
 let nombreApellido = [nombre, apellido].join(" ")
 
-let mailUsuario = SolicitarMailCliente()
+let mailUsuario = solicitarMailCliente()
 
 let puntosUsuario = puntosCliente()
 
@@ -91,12 +97,23 @@ let puntosUsuario = puntosCliente()
 const clienteNuevo1 = []
 clienteNuevo1.push(new Cliente(nombreApellido, puntosUsuario, mailUsuario))
 
-for (const clienteRegistrado of clienteNuevo1) {
-    clienteRegistrado.datosCliente()
+/* -------------------------------- Modificacion Datos Usuario Segun valores Ingresados -------------------------------- */
+
+for (const nuevoCliente of clienteNuevo1) {
+    const contenedorUsuario = document.getElementById("datos-cliente-container")
+    const contenedorMonto = document.getElementById("monto-container")
+    const usuarioLoggeado = document.getElementById("usuario-actual")
+    let montoUsuarioLoggeado = document.getElementById("monto")
+    let nombreUsuario = document.createElement('a')
+    nombreUsuario.innerHTML = `<a href="#" id="usuario-actual" class="fw-bold log-in">${nuevoCliente.nombreApellido}</a>`
+    let montoUsuario = document.createElement('p')
+    montoUsuario.innerHTML = `<p id="monto">${nuevoCliente.cantidadPuntos}</p>`
+    contenedorUsuario.replaceChild(nombreUsuario, usuarioLoggeado);
+    contenedorMonto.replaceChild(montoUsuario, montoUsuarioLoggeado)
 }
 
 /* -------------------------------- Simulador: Solicitando costo del producto al usuario y devolviendo el resultado de la compra -------------------------------- */
 
-let costoProducto = verificarCostoProducto()
+/* let costoProducto = verificarCostoProducto()
 
-let ResultadoCompra = total(puntosUsuario, costoProducto)
+let resultadoCompra = total(puntosUsuario, costoProducto) */ // Funciones para Operar la para compra.

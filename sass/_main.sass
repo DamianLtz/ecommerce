@@ -3,7 +3,7 @@ main
 
 .carousel
     width: 100%
-    height: 450px
+    height: 100%
     margin: auto
     @media screen and ( max-width: 991px )
         height: auto
@@ -12,12 +12,23 @@ main
         align-items: center
         height: 450px
         @media screen and ( max-width: 991px )
-            height: auto
+            height: 360px
+        @media screen and ( max-width: 576px )
+            height: 200px
         .carousel-item
             transition: transform .6s cubic-bezier(0.4, 0, 0.2, 1)
             height: 450px
             @media screen and (max-width: 991px)
-                height: auto
+                height: 360px
+            @media screen and (max-width: 576px)
+                height: 200px
+            img
+                @media screen and (max-width: 991px)
+                    height: 360px
+                    object-fit: cover
+                @media screen and (max-width: 576px)
+                    height: 200px
+                    object-fit: cover
             .carousel-opacidad
                 position: absolute
                 top: 0
@@ -74,6 +85,7 @@ main
 
 .cards-container
     .col-xl-3
+        transition: width 0.5s, transform 0.5s;
         display: flex
         justify-content: center
         .card
