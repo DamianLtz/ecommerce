@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-commerce - Sesion</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="body-style">
+    <section>
+        <div class="container-form" id="formulario">
+            <h5 class="text-light pb-2">Registrarse</h5>
+            <div class="inputs">
+                <div class="name-input">
+                    <div class="input-nombre">
+                        <label>Nombre</label>
+                        <input type="text" placeholder="Ej: Juan" name="nombre" id="nombre" class="input-correcto">
+                        <div class="d-flex justify-content-center align-items-center pt-2 opacity-0" id="nombreIncorrecto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#dc3545"
+                                class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                            </svg>
+                            <p class="ps-1 text-danger text-center">Nombre Incorrecto</p>
+                        </div>
+                    </div>
+                    <div class="input-apellido">
+                        <label>Apellido</label>
+                        <input type="text" placeholder="Ej: Perez" name="apellido" id="apellido" class="input-correcto">
+                        <div class="d-flex justify-content-center align-items-center pt-2 opacity-0" id="apellidoIncorrecto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#dc3545"
+                                class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                            </svg>
+                            <p class="ps-1 text-danger text-center">Apellido Incorrecto</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="others-input">
+                    <label>Email</label>
+                    <input type="email" placeholder="Ej: jperez@gmail.com" name="email" id="email" class="input-correcto">
+                    <div class="d-flex align-items-center ps-1 pt-2 opacity-0" id="emailIncorrecto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#dc3545"
+                            class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                        </svg>
+                        <p class="ps-1 text-danger">E-mail Incorrecto</p>
+                    </div>
+                </div>
+                <div class="others-input">
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="Ingrese su contraseña" name="password" id="password" class="input-correcto">
+                    <div class="d-flex align-items-center ps-1 pt-2 opacity-0" id="passwordIncorrecto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#dc3545"
+                            class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                        </svg>
+                        <p class="ps-1 text-danger">Contraseña invalida</p>
+                    </div>
+                </div>
+                <div class="btn-box">
+                    <p class="text-center">Al presionar "Registrarse" esta aceptando nuestros terminos y condiciones.
+                    </p>
+                    <button id="boton-registro">Registrarse</button>
+                </div>
+            </div>
+            <div class="other-content">
+                <p>o registrate con: </p>
+                <div class="links">
+                    <a href="#" aria-disabled="true" tabindex="-1">
+                        <img src="assets/img/main/log-in/twitter-icon.svg" alt="">
+                    </a>
+                    <a href="#" aria-disabled="true" tabindex="-1">
+                        <img src="assets/img/main/log-in/github-icon.svg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/registro.js"></script>
+</body>
+
+</html>

@@ -80,11 +80,8 @@ function total(puntosCliente, costoProducto) {
 
 /* -------------------------------- Inicio Simulador: Solicitando datos del usuario  -------------------------------- */
 
-let [nombre, apellido] = datosCliente() //Devuelve el nombre y apellido ingresado del cliente.
 
-/* let nombreApellidoArray = datosCliente() // [silvana, suarez] // Devuelve el nombre y apellido ingresado del cliente.
-let nombre = nombreApellidoArray[0]
-let apellido = nombreApellido[1] */
+let [nombre, apellido] = datosCliente() //Devuelve el nombre y apellido ingresado del cliente.
 
 let nombreApellido = [nombre, apellido].join(" ")
 
@@ -97,9 +94,9 @@ let puntosUsuario = puntosCliente()
 const clienteNuevo1 = []
 clienteNuevo1.push(new Cliente(nombreApellido, puntosUsuario, mailUsuario))
 
-/* -------------------------------- Modificacion Datos Usuario Segun valores Ingresados -------------------------------- */
+/* -------------------------------- Modificacion Datos Usuario en el HTML Según valores Ingresados -------------------------------- */
 
-for (const nuevoCliente of clienteNuevo1) {
+/* for (const nuevoCliente of clienteNuevo1) {
     const contenedorUsuario = document.getElementById("datos-cliente-container")
     const contenedorMonto = document.getElementById("monto-container")
     const usuarioLoggeado = document.getElementById("usuario-actual")
@@ -110,7 +107,34 @@ for (const nuevoCliente of clienteNuevo1) {
     montoUsuario.innerHTML = `<p id="monto">${nuevoCliente.cantidadPuntos}</p>`
     contenedorUsuario.replaceChild(nombreUsuario, usuarioLoggeado);
     contenedorMonto.replaceChild(montoUsuario, montoUsuarioLoggeado)
+} */
+
+//  Modificacion datos del usuario en la página (Nombre y Cantidad de puntos):
+
+for (const nuevoCliente of clienteNuevo1) {
+    const usuarioLoggeado = document.getElementById("usuario-actual")
+    let montoUsuarioLoggeado = document.getElementById("monto")
+    usuarioLoggeado.innerText = nuevoCliente.nombreApellido
+    montoUsuarioLoggeado.innerText = nuevoCliente.cantidadPuntos
 }
+
+/* -------------------------------- Guardando datos en localStorage  -------------------------------- */
+
+let datosSesion = []
+
+function ComprobarLocalStorage() {
+    if (localStorage.getItem("datosSesion")) {
+        datosSesion = JSON.parse(localStorage.getItem("datosSesion"))
+        console.log(datosSesion)
+    } else {
+        localStorage.setItem("datosSesion", JSON.stringify(clienteNuevo1))
+    }
+}
+
+ComprobarLocalStorage()
+
+/* const clienteNuevo1 = []
+clienteNuevo1.push(new Cliente(nombreApellido, puntosUsuario, mailUsuario)) */
 
 /* -------------------------------- Simulador: Solicitando costo del producto al usuario y devolviendo el resultado de la compra -------------------------------- */
 
