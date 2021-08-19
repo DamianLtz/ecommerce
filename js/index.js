@@ -67,12 +67,12 @@ for (const producto of listaProductos) {
       usuarioLogueado.carrito = [];
     }
     // Esto cambia el texto del boton "agregar al carrito" luego de X's de haberlo presionado.
-      if (botonComprar.innerText === "Agregar al carrito") {
-        botonComprar.innerText = "Agregado al carrito!";
-      }
-      setTimeout(function () {
-        botonComprar.innerText = "Agregar al carrito";
-      }, 750);
+    if (botonComprar.innerText === "Agregar al carrito") {
+      botonComprar.innerText = "Agregado al carrito!";
+    }
+    setTimeout(function () {
+      botonComprar.innerText = "Agregar al carrito";
+    }, 750);
 
     for (const producto of usuarioLogueado.carrito) {
       if (producto.id === id) {
