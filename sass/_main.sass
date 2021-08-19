@@ -43,8 +43,8 @@
                         font-size: 1rem
 
 .obj-cover
-     @media screen and (min-width: 768px)
-         object-fit: cover
+    @media screen and (min-width: 768px)
+        object-fit: cover
 
 .text-mas-info
     color: $color-blue
@@ -57,9 +57,12 @@
         display: flex
         justify-content: center
         color: $texto-enlaces
+        transition: width 0.35s, transform 0.35s
         @media screen and (min-width: 1200px)
             width: 12%
-
+        @media screen and (max-width: 576px)
+            flex-direction: column
+            align-items: center
     .col-xs-6
         @media screen and (max-width: 576px)
             width: 40%
@@ -75,7 +78,8 @@
     border-radius: 50%
     background-color: #F4F4F4
     @media screen and (max-width: 576px)
-        margin-bottom: 2rem
+        width: 80px
+        height: 80px
 
     .btn-categoria
         display: grid
@@ -83,6 +87,9 @@
         img
             width: 24px
             height: 24px
+            margin-bottom: 0.5rem
+            @media screen and (max-width: 576px)
+                margin-bottom: 0
         p
             padding: 0.25rem 0.5rem
             text-align: center
@@ -90,7 +97,7 @@
 
 .cards-container
     .col-xl-3
-        transition: width 0.5s, transform 0.5s;
+        transition: width 0.5s, transform 0.5s
         display: flex
         justify-content: center
         .card

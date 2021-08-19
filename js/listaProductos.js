@@ -50,13 +50,13 @@ const listaProductos = [
     {
       id: 5,
       type: "pricePoints",
-      image: "assets/img/main/a02s.png",
+      image: "assets/img/main/notebook-gamer.png",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit Fuga.",
-      oldPrice: "$30.000",
-      title: "Samsung A02s",
-      price: 9250,
-      pricePoints: "5000 + $5.350",
+      oldPrice: "$230.000",
+      title: "Notebook gamer Asus",
+      price: 177325,
+      pricePoints: "45000 + $55.350",
       quantity: 1,
     },
     {
@@ -107,4 +107,16 @@ const listaProductos = [
       pricePoints: "35000 + $25.000",
       quantity: 1,
     },
+    {
+      id: 10,
+      type: "discount",
+      image: "assets/img/main/a02s.png",
+      description:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit Fuga.",
+      oldPrice: "$30.000",
+      title: "Samsung A02s",
+      price: 9250,
+      pricePoints: "5000 + $5.350",
+      quantity: 1,
+    }
   ];

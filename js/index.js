@@ -14,7 +14,7 @@ for (const producto of listaProductos) {
   let div = document.createElement("div");
   div.classList.add("col-xl-3", "col-lg-4", "col-md-6", "gy-4");
   div.innerHTML = `
-        <a href="#" class="card position-static text-dark">
+        <div class="card position-static text-dark">
             <div class="bg-img-container">
                 <img src=${image} alt=""
                     class="img-fluid position absolute top-0 p-4">
@@ -46,7 +46,7 @@ for (const producto of listaProductos) {
                     Agregar al carrito
                 </button>
             </div>
-        </a>`;
+        </div>`;
   if (type === "points") {
     primerSeccion.appendChild(div);
   }
@@ -66,15 +66,13 @@ for (const producto of listaProductos) {
     if (!usuarioLogueado.carrito) {
       usuarioLogueado.carrito = [];
     }
-    // Esta function cambia el texto del boton "agregar al carrito" luego de 1.5s de haberlo presionado.
-    function CambioTextoBoton() {
+    // Esto cambia el texto del boton "agregar al carrito" luego de X's de haberlo presionado.
       if (botonComprar.innerText === "Agregar al carrito") {
         botonComprar.innerText = "Agregado al carrito!";
       }
       setTimeout(function () {
         botonComprar.innerText = "Agregar al carrito";
       }, 750);
-    }
 
     for (const producto of usuarioLogueado.carrito) {
       if (producto.id === id) {
