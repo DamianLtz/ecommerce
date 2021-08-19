@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-commerce - Sesion</title>
+    <title>e-commerce - Registro</title>
+    <link rel="shortcut icon" href="assets/img/fav-icon.ico" type="image/png" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,7 @@
 <body class="body-style">
     <section>
         <div class="container-form" id="formulario">
-            <h5 class="text-light pb-2">Registrarse</h5>
+            <h5 class="text-dark pb-2">Registrarse</h5>
             <div class="inputs">
                 <div class="name-input">
                     <div class="input-nombre">
@@ -73,6 +74,15 @@
                     </div>
                 </div>
                 <div class="btn-box">
+                    <div class="d-none align-items-center justify-content-center pt-3" id="formulario__invalido">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#dc3545"
+                            class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                        </svg>
+                        <p class="error-campos-vacios text-danger ms-2">Por favor rellene el formulario correctamente.</p>
+                    </div>
                     <p class="text-center">Al presionar "Registrarse" esta aceptando nuestros terminos y condiciones.
                     </p>
                     <button id="boton-registro">Registrarse</button>

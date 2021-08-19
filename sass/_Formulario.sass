@@ -1,7 +1,7 @@
 .body-style
     // background-image: url(../assets/img/main/back2.jpg)
     // background-image: url(../assets/back-special.webp)
-    background: #202020
+    background: #202020;
     background-size: cover
     background-repeat: no-repeat
     background-attachment: fixed
@@ -17,10 +17,11 @@
     display: flex
     flex-direction: column
     // backdrop-filter: blur(8px)
-    border: .7px solid rgba(255,255,255 ,.2 )
+    background-color: #f8f9fa
+    border: .7px solid rgba(32, 32, 32,0.2)
     align-items: center
     justify-content: space-around
-    color: $color-white
+    color: $color-black
     padding: 2rem
 
 .inputs
@@ -39,7 +40,7 @@
 .input-nombre
     label
         padding: 0.5rem 0
-        color: $color-white
+        color: $color-black
     input
         border-radius: 3px 0 0 3px
     p
@@ -48,7 +49,7 @@
 .input-apellido
     label
         padding: 0.5rem 0
-        color: $color-white
+        color: $color-black
     input
         border-radius: 0 3px 3px 0
     p
@@ -63,7 +64,7 @@
 .others-input
     label
         padding: 0.5rem 0
-        color: $color-white
+        color: $color-black
     input
         height: auto
         outline: none
@@ -82,6 +83,8 @@
     flex-direction: column
     justify-content: center
     align-items: center
+    .error-campos-vacios
+        font-size: 14px
     p
         font-size: .75rem
         padding: 1rem 0
@@ -108,6 +111,17 @@
         a
             pointer-events: none
             opacity: .65
+
+.boton-registro-aqui
+    color: $color-blue
+    background-image: linear-gradient(currentColor, currentColor)
+    background-position: 0% 100%
+    background-repeat: no-repeat
+    background-size: 0% 2px
+    transition: background-size .2s
+    &:hover
+        color: $color-blue
+        background-size: 100% 2px
 
 .links
     display: flex

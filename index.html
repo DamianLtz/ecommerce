@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-commerce</title>
+    <title>E-commerce</title>
+    <link rel="shortcut icon" href="assets/img/fav-icon.ico" type="image/png" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,19 +60,17 @@
                         </li>
                     </ul>
                     <div class="cuenta--container" id="datos-cliente-container">
-                        <div class="shop-cart-container">
-                            <img src="assets/img/header/shopping-cart.svg" alt="" class="shop-cart">
-                            <div class="shop-cart-window">
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mx-3" id="monto-container">
+                        <a href="carrito.html" class="shop-cart-container">
+                            <img src="assets/img/header/shopping-cart.svg" alt="" class="shop-cart d-none">
+                        </a>
+                        <div class="d-none align-items-center ms-3" id="monto-container">
                             <img src="assets/img/main/coin.png" alt="" class="coin">
                             <p id="monto"></p>
                         </div>
                         <a href="inicio-sesion.html" id="usuario-actual" class=" fw-bold log-in">
                             Ingresar a mi Cuenta
                         </a>
-                        <button class="btn ms-2 p-0 shadow-none" id="log-out">
+                        <button class="btn ms-2 p-0 shadow-none d-none" id="log-out">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="174.011 86 216 128 174.011 170" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline><line x1="104" y1="128" x2="215.97057" y2="128" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><path d="M104,216H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8h56" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
                         </button>
                     </div>
@@ -113,11 +112,11 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="assets/img/main/back6.jpg" class="d-block w-100" alt="...">
+                        <img src="assets/img/main/back11.jpg" class="d-block w-100 h-100" alt="...">
                         <div class="carousel-opacidad"></div>
                         <div class="carousel-caption d-block">
-                            <h2>Third slide label</h2>
-                            <p>Some representative placeholder content for the third slide.</p>
+                            <h2>Notebooks MSI</h2>
+                            <p>Ideales para todo tipo de jugadores.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -129,11 +128,11 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="assets/img/main/back5.jpg" class="d-block w-100" alt="...">
+                        <img src="assets/img/main/back13.jpg" class="d-block w-100 h-100 obj-cover" alt="...">
                         <div class="carousel-opacidad"></div>
                         <div class="carousel-caption d-block">
-                            <h2>Fifth slide label</h2>
-                            <p>Some representative placeholder content for the third slide.</p>
+                            <h2>Distribuidor Oficial Logitech</h2>
+                            <p>Encontra Aquí los mejores productos de Logitech.</p>
                         </div>
                     </div>
                 </div>
@@ -301,6 +300,11 @@
                     </h4>
                     <ul>
                         <li>
+                            <a href="registro-cuenta.html">
+                                Crear Cuenta
+                            </a>
+                        </li>
+                        <li>
                             <a href="#">
                                 Mis datos
                             </a>
@@ -308,11 +312,6 @@
                         <li>
                             <a href="#">
                                 Mis canjes
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Mis Direcciones
                             </a>
                         </li>
                     </ul>
@@ -358,8 +357,10 @@
         </div>
     </footer>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/mainAnimaciones.js"></script>
+    <script src="js/listaProductos.js"></script>
+    <script src="js/identificarCliente.js"></script>
     <script src="js/index.js"></script>
 </body>
 

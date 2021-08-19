@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce - Carrito</title>
+    <link rel="shortcut icon" href="assets/img/fav-icon.ico" type="image/png" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light w-100">
+            <div class="container-lg">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/img/header/logo.svg" alt="" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorías
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Accesorios y Perifericos</a></li>
+                                <li><a class="dropdown-item" href="#">Audio</a></li>
+                                <li><a class="dropdown-item" href="#">Celulares</a></li>
+                                <li><a class="dropdown-item" href="#">Electrobelleza</a></li>
+                                <li><a class="dropdown-item" href="#">Hogar</a></li>
+                                <li><a class="dropdown-item" href="#">Notebooks</a></li>
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Televisores</a></li>
+                                <li><a class="dropdown-item" href="#">Software</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Beneficios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Mis compras</a>
+                        </li>
+                        <li>
+                            <form class="d-flex align-items-center form-style">
+                                <input class="form-control me-2" type="text" placeholder="¿Qué estás buscando?"
+                                    aria-label="Search">
+                                <a href="#" class="me-3"><img src="assets/img/header/search.svg" alt=""></a>
+                            </form>
+                        </li>
+                    </ul>
+                    <div class="cuenta--container" id="datos-cliente-container">
+                        <div class="shop-cart-container">
+                            <img src="assets/img/header/shopping-cart.svg" alt="" class="shop-cart">
+                            <div class="shop-cart-window">
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center ms-3" id="monto-container">
+                            <img src="assets/img/main/coin.png" alt="" class="coin">
+                            <p id="monto"></p>
+                        </div>
+                        <a href="inicio-sesion.html" id="usuario-actual" class=" fw-bold log-in">
+                            Ingresar a mi Cuenta
+                        </a>
+                        <button class="btn ms-2 p-0 shadow-none d-none" id="log-out">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000"
+                                viewBox="0 0 256 256">
+                                <rect width="256" height="256" fill="none"></rect>
+                                <polyline points="174.011 86 216 128 174.011 170" fill="none" stroke="#000000"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                                <line x1="104" y1="128" x2="215.97057" y2="128" fill="none" stroke="#000000"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <path d="M104,216H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8h56" fill="none" stroke="#000000"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="container-lg">
+            <h1 class="pt-5 fs-3">Tu carrito</h1>
+            <div class="container-shopcart mt-5 p-lg-5 p-sm-4 p-3 g-3" id="carritoDeCompras">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container-lg mt-5 py-5">
+            <div class="row">
+                <div class="col-lg-4 footer-options py-3 py-lg-0">
+                    <h4>
+                        Mi Cuenta
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Mis datos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Mis canjes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Mis Direcciones
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 footer-options py-3 py-lg-0">
+                    <h4>
+                        Ayuda
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Terminos y condiciones
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Defensa del consumidor
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 footer-options py-3 py-lg-0">
+                    <h4>
+                        Información de la tienda
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Argentina
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Botón de Arrepentimiento
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h6 class="text-center text-muted pt-5">
+                Prototipo: Tienda de Puntos
+            </h6>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/mainAnimaciones.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/listaProductos.js"></script>
+    <script src="js/identificarCliente.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+
+</html>

@@ -1,10 +1,14 @@
 /* -------------------------------- Verifica si existe la lista en el local storage al hacer "Click". -------------------------------- */
 
 function clickInicioSesion(email, password) {
-  console.log(email, password);
   let usuariosRegistrados = JSON.parse(
     localStorage.getItem("Usuarios Registrados")
   );
+  let formularioInvalido = document.getElementById("formulario__invalido");
+  if (!usuariosRegistrados) {
+    formularioInvalido.classList.add("d-flex");
+    return formularioInvalido.classList.remove("d-none");
+  }
   if (email.value !== "" && password.value !== "") {
     for (let i = 0; i < usuariosRegistrados.length; i++) {
       if (
@@ -15,9 +19,11 @@ function clickInicioSesion(email, password) {
           "Usuario Logueado",
           JSON.stringify(usuariosRegistrados[i])
         );
-        window.location.href = "../index.html";
+        return (window.location.href = "../index.html");
       }
     }
+    formularioInvalido.classList.add("d-flex");
+    formularioInvalido.classList.remove("d-none");
   } else {
     if (email.value === "") {
       document.getElementById("email").classList.add("error-input");
@@ -50,6 +56,11 @@ const expresiones = {
 };
 
 const validarFormulario = (e) => {
+  let formularioInvalido = document.getElementById("formulario__invalido");
+  if (formularioInvalido) {
+    formularioInvalido.classList.remove("d-flex");
+    formularioInvalido.classList.add("d-none");
+  }
   switch (e.target.name) {
     case "email":
       if (expresiones.email.test(e.target.value)) {
@@ -58,12 +69,14 @@ const validarFormulario = (e) => {
           .getElementById("emailIncorrecto")
           .classList.remove("opacity-100");
         document.getElementById("email").classList.remove("error-input");
+        document.getElementById("email").classList.add("input-correcto");
       } else {
         document
           .getElementById("emailIncorrecto")
           .classList.remove("opacity-0");
         document.getElementById("emailIncorrecto").classList.add("opacity-100");
         document.getElementById("email").classList.add("error-input");
+        document.getElementById("email").classList.remove("input-correcto");
       }
       break;
     case "password":
@@ -75,6 +88,7 @@ const validarFormulario = (e) => {
           .getElementById("passwordIncorrecto")
           .classList.remove("opacity-100");
         document.getElementById("password").classList.remove("error-input");
+        document.getElementById("password").classList.add("input-correcto");
       } else {
         document
           .getElementById("passwordIncorrecto")
@@ -83,6 +97,7 @@ const validarFormulario = (e) => {
           .getElementById("passwordIncorrecto")
           .classList.add("opacity-100");
         document.getElementById("password").classList.add("error-input");
+        document.getElementById("password").classList.remove("input-correcto");
       }
       break;
     default:
@@ -105,5 +120,14 @@ inputs.forEach((input) => {
 
 const guardarRegistro = document.getElementById("boton-registro");
 /* guardarRegistro.addEventListener("click", clickInicioSesion); */
-guardarRegistro.onclick = () =>
-  clickInicioSesion(emailCliente.value, passwordCliente.value);
+guardarRegistro.onclick = () => {
+  let formularioInvalido = document.getElementById("formulario__invalido");
+  if (emailCliente.value === "" || passwordCliente.value === "") {
+    formularioInvalido.classList.add("d-flex");
+    formularioInvalido.classList.remove("d-none");
+  } else {
+    formularioInvalido.classList.remove("d-flex");
+    formularioInvalido.classList.add("d-none");
+    clickInicioSesion(emailCliente.value, passwordCliente.value);
+  }
+};
