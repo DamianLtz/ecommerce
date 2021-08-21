@@ -4,10 +4,9 @@ function clickInicioSesion(email, password) {
   let usuariosRegistrados = JSON.parse(
     localStorage.getItem("Usuarios Registrados")
   );
-  let formularioInvalido = document.getElementById("formulario__invalido");
   if (!usuariosRegistrados) {
-    formularioInvalido.classList.add("d-flex");
-    return formularioInvalido.classList.remove("d-none");
+    $("#formulario__invalido").addClass("d-flex");
+    return $("#formulario__invalido").removeClass("d-none");
   }
   if (email.value !== "" && password.value !== "") {
     for (let i = 0; i < usuariosRegistrados.length; i++) {
@@ -22,112 +21,75 @@ function clickInicioSesion(email, password) {
         return (window.location.href = "../index.html");
       }
     }
-    formularioInvalido.classList.add("d-flex");
-    formularioInvalido.classList.remove("d-none");
-  } else {
-    if (email.value === "") {
-      document.getElementById("email").classList.add("error-input");
-      document.getElementById("email").classList.remove("input-correcto");
-      document.getElementById("emailIncorrecto").classList.remove("opacity-0");
-      document.getElementById("emailIncorrecto").classList.add("opacity-100");
-    }
-    if (password.value === "") {
-      document.getElementById("password").classList.add("error-input");
-      document.getElementById("password").classList.remove("input-correcto");
-      document
-        .getElementById("passwordIncorrecto")
-        .classList.remove("opacity-0");
-      document
-        .getElementById("passwordIncorrecto")
-        .classList.add("opacity-100");
-    }
+    $("#formulario__invalido").addClass("d-flex");
+    $("#formulario__invalido").removeClass("d-none");
   }
 }
 
 /* -------------------------------- Evento al hacer "click" en "Iniciar Sesion".  -------------------------------- */
 
-let emailCliente = document.getElementById("email");
-let passwordCliente = document.getElementById("password");
-
-let inputs = document.querySelectorAll("#formulario input");
+let inputs = $("#formulario input");
 const expresiones = {
   email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
   password: /^.{4,12}$/, // 4 a 12 digitos.
 };
 
 const validarFormulario = (e) => {
-  let formularioInvalido = document.getElementById("formulario__invalido");
-  if (formularioInvalido) {
-    formularioInvalido.classList.remove("d-flex");
-    formularioInvalido.classList.add("d-none");
+  if ($("#formulario__invalido")) {
+    $("#formulario__invalido").removeClass("d-flex");
+    $("#formulario__invalido").addClass("d-none");
   }
   switch (e.target.name) {
+    case "nombre":
+      validarCampo(expresiones.nombre, e.target, "nombre");
+      break;
+    case "apellido":
+      validarCampo(expresiones.apellido, e.target, "apellido");
+      break;
     case "email":
-      if (expresiones.email.test(e.target.value)) {
-        document.getElementById("emailIncorrecto").classList.add("opacity-0");
-        document
-          .getElementById("emailIncorrecto")
-          .classList.remove("opacity-100");
-        document.getElementById("email").classList.remove("error-input");
-        document.getElementById("email").classList.add("input-correcto");
-      } else {
-        document
-          .getElementById("emailIncorrecto")
-          .classList.remove("opacity-0");
-        document.getElementById("emailIncorrecto").classList.add("opacity-100");
-        document.getElementById("email").classList.add("error-input");
-        document.getElementById("email").classList.remove("input-correcto");
-      }
+      validarCampo(expresiones.email, e.target, "email");
       break;
     case "password":
-      if (expresiones.password.test(e.target.value)) {
-        document
-          .getElementById("passwordIncorrecto")
-          .classList.add("opacity-0");
-        document
-          .getElementById("passwordIncorrecto")
-          .classList.remove("opacity-100");
-        document.getElementById("password").classList.remove("error-input");
-        document.getElementById("password").classList.add("input-correcto");
-      } else {
-        document
-          .getElementById("passwordIncorrecto")
-          .classList.remove("opacity-0");
-        document
-          .getElementById("passwordIncorrecto")
-          .classList.add("opacity-100");
-        document.getElementById("password").classList.add("error-input");
-        document.getElementById("password").classList.remove("input-correcto");
-      }
+      validarCampo(expresiones.password, e.target, "password");
       break;
     default:
-      alert("Error 404 (?)");
+      alert("error no se esta validando el formulario correctamente");
       break;
   }
 };
 
-inputs.forEach((input) => {
-  input.addEventListener("keyup", validarFormulario);
-  input.addEventListener("blur", validarFormulario);
-  input.addEventListener("keyup", function (event) {
-    if (event.key === "Enter") {
-      guardarRegistro.click();
-    }
-  });
+const validarCampo = (expresion, input, campo) => {
+  if (expresion.test(input.value)) {
+    $(`#${campo}Incorrecto`).addClass("opacity-0");
+    $(`#${campo}Incorrecto`).removeClass("opacity-100");
+    $(`#${campo}`).removeClass("error-input");
+    $(`#${campo}`).addClass("input-correcto");
+  } else {
+    $(`#${campo}Incorrecto`).removeClass("opacity-0");
+    $(`#${campo}Incorrecto`).addClass("opacity-100");
+    $(`#${campo}`).addClass("error-input");
+    $(`#${campo}`).removeClass("input-correcto");
+  }
+  return expresion.test(input.value);
+};
+
+inputs.keyup(function (event) {
+  validarFormulario(event);
+  if (event.key === "Enter") {
+    $("#boton-registro").click();
+  }
 });
+inputs.blur(validarFormulario);
 
 /* -------------------------------- Escuchar al boton registro al hacer "click" en él.  -------------------------------- */
 
-const guardarRegistro = document.getElementById("boton-registro");
-/* guardarRegistro.addEventListener("click", clickInicioSesion); */
-guardarRegistro.onclick = () => {
-  let formularioInvalido = document.getElementById("formulario__invalido");
-  if (emailCliente.value === "" || passwordCliente.value === "") {
-    formularioInvalido.classList.add("d-flex");
-    formularioInvalido.classList.remove("d-none");
+$("#boton-registro").on("click", () => {
+  if ($("#email").val() === "" || $("#password").val() === "") {
+    $("#formulario__invalido").addClass("d-flex");
+    $("#formulario__invalido").removeClass("d-none");
   } else {
-    formularioInvalido.classList.remove("d-flex");
-    formularioInvalido.classList.add("d-none");
-    clickInicioSesion(emailCliente.value, passwordCliente.value);
+    $("#formulario__invalido").removeClass("d-flex");
+    $("#formulario__invalido").addClass("d-none");
+    clickInicioSesion($("#email").val(), $("#password").val());
   }
-};
+});

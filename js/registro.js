@@ -12,10 +12,10 @@ class nuevoCliente {
 
 function clickRegistro(nombre, apellido, email, password, puntosBienvenida) {
   const nuevoClienteRegistrado = new nuevoCliente({
-    nombre: nombre.value,
-    apellido: apellido.value,
-    email: email.value,
-    password: password.value,
+    nombre: nombre,
+    apellido: apellido,
+    email: email,
+    password: password,
     puntos: puntosBienvenida,
   });
 
@@ -30,40 +30,6 @@ function clickRegistro(nombre, apellido, email, password, puntosBienvenida) {
     }
 
     cargarNuevoUsuario(nuevoClienteRegistrado);
-  } else {
-    //Refactorizar.
-    if (nombre.value === "") {
-      document.getElementById("nombre").classList.add("error-input");
-      document.getElementById("nombre").classList.remove("input-correcto");
-      document.getElementById("nombreIncorrecto").classList.remove("opacity-0");
-      document.getElementById("nombreIncorrecto").classList.add("opacity-100");
-    }
-    if (apellido.value === "") {
-      document.getElementById("apellido").classList.add("error-input");
-      document.getElementById("apellido").classList.remove("input-correcto");
-      document
-        .getElementById("apellidoIncorrecto")
-        .classList.remove("opacity-0");
-      document
-        .getElementById("apellidoIncorrecto")
-        .classList.add("opacity-100");
-    }
-    if (email.value === "") {
-      document.getElementById("email").classList.add("error-input");
-      document.getElementById("email").classList.remove("input-correcto");
-      document.getElementById("emailIncorrecto").classList.remove("opacity-0");
-      document.getElementById("emailIncorrecto").classList.add("opacity-100");
-    }
-    if (password.value === "") {
-      document.getElementById("password").classList.add("error-input");
-      document.getElementById("password").classList.remove("input-correcto");
-      document
-        .getElementById("passwordIncorrecto")
-        .classList.remove("opacity-0");
-      document
-        .getElementById("passwordIncorrecto")
-        .classList.add("opacity-100");
-    }
   }
 }
 
@@ -104,13 +70,9 @@ function guardarUsuariosEnStorage(datosDeUsuarioRecibidos) {
 }
 /* -------------------------------- Evento al hacer "click" en "Registrarse".  -------------------------------- */
 
-let nombreCliente = document.getElementById("nombre");
-let apellidoCliente = document.getElementById("apellido");
-let emailCliente = document.getElementById("email");
-let passwordCliente = document.getElementById("password");
-let puntosBienvenidaCliente = 30000;
+let puntosBienvenidaCliente = 45000;
 
-let inputs = document.querySelectorAll("#formulario input");
+let inputs = $("#formulario input");
 const expresiones = {
   nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras, numeros, guion y guion_bajo
   apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -121,10 +83,9 @@ const expresiones = {
 /* --------------- Validar Caracteres del formulario y evento al soltar una tecla o salir de una sección del mismo.  --------------- */
 
 const validarFormulario = (e) => {
-  let formularioInvalido = document.getElementById("formulario__invalido");
-  if (formularioInvalido) {
-    formularioInvalido.classList.remove("d-flex");
-    formularioInvalido.classList.add("d-none");
+  if ($("#formulario__invalido")) {
+    $("#formulario__invalido").removeClass("d-flex");
+    $("#formulario__invalido").addClass("d-none");
   }
   switch (e.target.name) {
     case "nombre":
@@ -147,39 +108,33 @@ const validarFormulario = (e) => {
 
 const validarCampo = (expresion, input, campo) => {
   if (expresion.test(input.value)) {
-    document.getElementById(`${campo}Incorrecto`).classList.add("opacity-0");
-    document
-      .getElementById(`${campo}Incorrecto`)
-      .classList.remove("opacity-100");
-    document.getElementById(`${campo}`).classList.remove("error-input");
-    document.getElementById(`${campo}`).classList.add("input-correcto");
+    $(`#${campo}Incorrecto`).addClass("opacity-0");
+    $(`#${campo}Incorrecto`).removeClass("opacity-100");
+    $(`#${campo}`).removeClass("error-input");
+    $(`#${campo}`).addClass("input-correcto");
   } else {
-    document.getElementById(`${campo}Incorrecto`).classList.remove("opacity-0");
-    document.getElementById(`${campo}Incorrecto`).classList.add("opacity-100");
-    document.getElementById(`${campo}`).classList.add("error-input");
-    document.getElementById(`${campo}`).classList.remove("input-correcto");
+    $(`#${campo}Incorrecto`).removeClass("opacity-0");
+    $(`#${campo}Incorrecto`).addClass("opacity-100");
+    $(`#${campo}`).addClass("error-input");
+    $(`#${campo}`).removeClass("input-correcto");
   }
   return expresion.test(input.value);
 };
 
 /* --------------- Fin Validar Caracteres del formulario y evento al soltar una tecla o salir de una sección del mismo.  --------------- */
 
-inputs.forEach((input) => {
-  input.addEventListener("keyup", validarFormulario);
-  input.addEventListener("blur", validarFormulario);
-  input.addEventListener("keyup", function (event) {
-    if (event.key === "Enter") {
-      guardarRegistro.click();
-    }
-  });
+// Por cada input debe suceder X evento.
+inputs.keyup(function (event) {
+  validarFormulario(event);
+  if (event.key === "Enter") {
+    $("#boton-registro").click();
+  }
 });
+inputs.blur(validarFormulario);
 
 /* -------------------------------- Escuchar al boton registro al hacer "click" en él.  -------------------------------- */
 
-const guardarRegistro = document.getElementById("boton-registro");
-guardarRegistro.onclick = () => {
-  // Comprueba si los datos ingresados en todos los campos SOLO no estan vacios.
-  let formularioInvalido = document.getElementById("formulario__invalido");
+$("#boton-registro").on("click", () => {
   if (
     expresiones.nombre.test(nombre.value) &&
     expresiones.apellido.test(apellido.value) &&
@@ -187,17 +142,17 @@ guardarRegistro.onclick = () => {
     expresiones.password.test(password.value)
   ) {
     clickRegistro(
-      nombreCliente,
-      apellidoCliente,
-      emailCliente,
-      passwordCliente,
+      $("#nombre").val(),
+      $("#apellido").val(),
+      $("#email").val(),
+      $("#password").val(),
       puntosBienvenidaCliente
     );
-    formularioInvalido.classList.remove("d-flex");
-    formularioInvalido.classList.add("d-none");
+    $("#formulario__invalido").removeClass("d-flex");
+    $("#formulario__invalido").addClass("d-none");
     window.location.href = "../index.html";
   } else {
-    formularioInvalido.classList.add("d-flex");
-    formularioInvalido.classList.remove("d-none");
+    $("#formulario__invalido").addClass("d-flex");
+    $("#formulario__invalido").removeClass("d-none");
   }
-};
+});
