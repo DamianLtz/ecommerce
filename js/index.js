@@ -7,40 +7,39 @@ for (const producto of listaProductos) {
   let oldPrice = producto.oldPrice;
   let price = producto.price;
   let description = producto.description;
-  let div = document.createElement("div");
-  div.classList.add("col-xl-3", "col-lg-4", "col-md-6", "gy-4");
-  div.innerHTML = `
-          <div class="card position-static text-dark">
-              <div class="bg-img-container">
-                  <img src=${image} alt=""
-                      class="img-fluid position absolute top-0 p-4">
-              </div>
-              <div class="card-body">
-                  <div class="d-flex align-items-center card-descuento-container">
-                      <div class="card-descuento">
-                          <p>
-                              - 15% OFF
-                          </p>
-                      </div>
-                      <p class="text-muted card-precio-anterior">
-                          ${oldPrice} puntos
-                      </p>
-                  </div>
-                  <h5 class="card-title">${title}</h5>
-                  <p class="text-muted py-3">
-                  ${description}
-                  </p>
-                  <div class="d-flex align-items-center card-coins-cost">
-                      <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
-                      <p class="card-text">${price}</p>
-                  </div>
-                  <button class="btn btn-comprar shadow-none" id=${id}>
-                      Agregar al carrito
-                  </button>
-              </div>
-          </div>`;
+  let div = `
+  <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
+    <div class="card position-static text-dark">
+      <div class="bg-img-container">
+          <img src=${image} alt=""
+              class="img-fluid position absolute top-0 p-4">
+      </div>
+      <div class="card-body">
+            <div class="d-flex align-items-center card-descuento-container">
+                <div class="card-descuento">
+                    <p>
+                        - 15% OFF
+                    </p>
+                </div>
+                <p class="text-muted card-precio-anterior">
+                    ${oldPrice} puntos
+                </p>
+            </div>
+            <h5 class="card-title">${title}</h5>
+            <p class="text-muted py-3">
+            ${description}
+            </p>
+            <div class="d-flex align-items-center card-coins-cost">
+                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                <p class="card-text">${price}</p>
+            </div>
+            <button class="btn btn-comprar shadow-none" id=${id}>
+                Agregar al carrito
+            </button>
+        </div>
+      </div>
+  </div>`;
   if (type === "featured") {
-    $("#primera");
     $("#primeraSeccion").append(div);
   }
   if (type === "products") {
