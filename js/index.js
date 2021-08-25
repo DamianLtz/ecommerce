@@ -1,13 +1,14 @@
 /* ---------------------------------------------------- Creando Catalogo de productos en la pagina principal ---------------------------------------------------- */
-for (const producto of listaProductos) {
-  let id = producto.id;
-  let type = producto.type;
-  let image = producto.image;
-  let title = producto.title;
-  let oldPrice = producto.oldPrice;
-  let price = producto.price;
-  let description = producto.description;
-  let div = `
+$(function () {
+  for (const producto of listaProductos) {
+    let id = producto.id;
+    let type = producto.type;
+    let image = producto.image;
+    let title = producto.title;
+    let oldPrice = producto.oldPrice;
+    let price = producto.price;
+    let description = producto.description;
+    let div = `
   <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
     <div class="card position-static text-dark">
       <div class="bg-img-container">
@@ -39,42 +40,53 @@ for (const producto of listaProductos) {
         </div>
       </div>
   </div>`;
-  if (type === "featured") {
-    $("#primeraSeccion").append(div);
-  }
-  if (type === "products") {
-    $("#segundaSeccion").append(div);
-  }
-  if (type === "discount") {
-    $("#terceraSeccion").append(div);
-  }
-
-  /* --------------- evento al hacer click en "agregar al carrito" --------------- */
-
-  $(`#${id}`).on("click", (e) => {
-    e.preventDefault();
-    let usuarioLogueado = JSON.parse(localStorage.getItem("Usuario Logueado"));
-    if (!usuarioLogueado.carrito) {
-      usuarioLogueado.carrito = [];
+    if (type === "featured") {
+      $("#primeraSeccion").append(div);
     }
-    // Esto cambia el texto del boton "agregar al carrito" luego de X's de haberlo presionado.
-    if ($(`#${id}`).text("Agregar al carrito")) {
-      $(`#${id}`).text("Agregado al carrito!");
+    if (type === "products") {
+      $("#segundaSeccion").append(div);
     }
-    setTimeout(function () {
-      $(`#${id}`).text("Agregar al carrito");
-    }, 850);
+    if (type === "discount") {
+      $("#terceraSeccion").append(div);
+    }
 
-    for (const producto of usuarioLogueado.carrito) {
-      if (producto.id === id) {
-        producto.quantity = producto.quantity + 1; //++
-        return localStorage.setItem(
-          "Usuario Logueado",
-          JSON.stringify(usuarioLogueado)
-        );
+    // El botón "agregar al carrito" SOLO aparece si hay un usuario logueado , de lo contrario no se muestra.
+
+    const usuarioLogueadoExiste = JSON.parse(localStorage.getItem("Usuario Logueado"));
+
+    if (usuarioLogueadoExiste === null){
+      $(`#${id}`).remove()
+    }
+
+    /* --------------- evento al hacer click en "agregar al carrito" --------------- */
+
+    $(`#${id}`).on("click", (e) => {
+      e.preventDefault();
+      let usuarioLogueado = JSON.parse(
+        localStorage.getItem("Usuario Logueado")
+      );
+      if (!usuarioLogueado.carrito) {
+        usuarioLogueado.carrito = [];
       }
-    }
-    usuarioLogueado.carrito.push(producto);
-    localStorage.setItem("Usuario Logueado", JSON.stringify(usuarioLogueado));
-  });
-}
+      // Esto cambia el texto del boton "agregar al carrito" luego de X's segundos de haberlo presionado.
+      if ($(`#${id}`).text("Agregar al carrito")) {
+        $(`#${id}`).text("Agregado al carrito!");
+      }
+      setTimeout(function () {
+        $(`#${id}`).text("Agregar al carrito");
+      }, 850);
+
+      for (const producto of usuarioLogueado.carrito) {
+        if (producto.id === id) {
+          producto.quantity = producto.quantity + 1; //++
+          return localStorage.setItem(
+            "Usuario Logueado",
+            JSON.stringify(usuarioLogueado)
+          );
+        }
+      }
+      usuarioLogueado.carrito.push(producto);
+      localStorage.setItem("Usuario Logueado", JSON.stringify(usuarioLogueado));
+    });
+  }
+});

@@ -1,17 +1,18 @@
-class nuevoCliente {
+class NuevoCliente {
   constructor(nuevoUsuario) {
     this.nombre = nuevoUsuario.nombre;
     this.apellido = nuevoUsuario.apellido;
     this.mail = nuevoUsuario.email;
     this.password = nuevoUsuario.password;
     this.puntos = nuevoUsuario.puntos;
+    // Cargar Datos en el HTML acá (en progreso).
   }
 }
 
 /* -------------------------------- Verifica si existe la lista en el local storage al hacer "Click". -------------------------------- */
 
 function clickRegistro(nombre, apellido, email, password, puntosBienvenida) {
-  const nuevoClienteRegistrado = new nuevoCliente({
+  const nuevoClienteRegistrado = new NuevoCliente({
     nombre: nombre,
     apellido: apellido,
     email: email,
@@ -58,6 +59,7 @@ function cargarNuevoUsuario(usuarioACargar) {
   let datosUsuarioArray = obtenerUsuariosStorage();
   datosUsuarioArray.push(usuarioACargar); //
   guardarUsuariosEnStorage(datosUsuarioArray);
+  localStorage.setItem("Usuario Logueado", JSON.stringify(usuarioACargar));
 }
 
 // Guarda la lista en el local storage con la key "Usuarios Registrados".
