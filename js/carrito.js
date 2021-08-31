@@ -42,11 +42,11 @@ $(function () {
             <p class="text-muted pt-3">${descripcionProducto}</p>
         </div>
         <div class="col-lg-6 col-md-8 col-sm-12 gy-lg-0 gy-3">
-            <div class="d-flex justify-content-lg-evenly justify-content-start align-items-center">
-                <div class="d-flex align-items-center">
-                <div class="d-flex align-items-center">
+            <div class="d-flex justify-content-lg-evenly justify-content-center align-items-center">
+                <div class="d-flex align-items-center container-price">
+                <div class="d-flex align-items-center pt-2">
                 <img src="assets/img/main/coin.png" alt="" class="coin">
-                <p class="text-dark fs-4 mx-lg-2 mx-0" id=${idProducto}-costo>${
+                <p class="text-dark fs-4 mx-2" id=${idProducto}-costo>${
         precioProducto * cantidadProducto
       }</p>
                 </div>
@@ -199,7 +199,7 @@ $(function () {
           if (montoUsuario - montoFinal < 0) {
             return $("#errorCompra").removeClass("d-none");
           } else {
-            $("#errorCompra").remove()
+            $("#errorCompra").remove();
             $("#monto").text(`${montoUsuario - montoFinal}`);
             obtenerUsuarioLogueado = JSON.parse(
               localStorage.getItem("Usuario Logueado")
@@ -247,7 +247,6 @@ $(function () {
       montoFinal = montoFinal + producto.price * producto.quantity;
     }
     $("#total").text(montoFinal);
-    /* totalCompra.innerText = montoFinal; */
     return montoFinal;
   }
 
