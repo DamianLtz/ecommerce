@@ -1,6 +1,6 @@
 /* ---------------------------------------------------- Creando Categorias y el Catalogo de productos en la pagina principal ---------------------------------------------------- */
 $(function () {
-  const GETJSON = "https://api.jsonbin.io/b/612d354d259bcb6118ef5034/3";
+  const GETJSON = "https://api.jsonbin.io/b/612d354d259bcb6118ef5034/4";
   $.get(GETJSON, function (respuesta, estado) {
     if (estado === "success") {
       let listaProductos = respuesta.listaProductos;
