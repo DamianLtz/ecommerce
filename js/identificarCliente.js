@@ -33,7 +33,7 @@ $(function () {
       $("#usuario-actual").text(nombreCompletoCliente);
       $("#datos-cliente-container a:last-child").remove();
       $("#datos-cliente-container").append(`
-      <p id="usuario-actual" class="fw-bold log-in">${nombreCompletoCliente}</p>
+      <p id="usuario-actual" class="fw-bold log-in logged">${nombreCompletoCliente}</p>
       <button class="btn p-0 shadow-none" id="log-out">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000"
           viewBox="0 0 256 256">
@@ -51,7 +51,7 @@ $(function () {
       $(".shop-cart").removeClass("d-none");
       $("#monto-container").addClass("d-flex");
       $("#monto-container").removeClass("d-none");
-      $("#footer-options li:first-child").remove()
+      $("#footer-options li:first-child").remove();
     }
   }
 

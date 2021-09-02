@@ -14,9 +14,13 @@
             height: 128px
             object-fit: contain
 
-.container-price
+
+.column-mobile
     @media (max-width: 991px)
-        flex-direction: column-reverse
+        flex-direction: column
+    .container-price
+        @media (max-width: 991px)
+            flex-direction: column
 
 .coin
     width: 24px

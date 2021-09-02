@@ -42,16 +42,16 @@ $(function () {
             <p class="text-muted pt-3">${descripcionProducto}</p>
         </div>
         <div class="col-lg-6 col-md-8 col-sm-12 gy-lg-0 gy-3">
-            <div class="d-flex justify-content-lg-evenly justify-content-center align-items-center">
+            <div class="d-flex justify-content-lg-evenly justify-content-center align-items-lg-center column-mobile">
                 <div class="d-flex align-items-center container-price">
-                <div class="d-flex align-items-center pt-2">
+                <div class="d-flex align-items-center py-2 py-lg-0 order-3 order-lg-0">
                 <img src="assets/img/main/coin.png" alt="" class="coin">
                 <p class="text-dark fs-4 mx-2" id=${idProducto}-costo>${
         precioProducto * cantidadProducto
       }</p>
                 </div>
-                    <p class="text-muted pe-2" id="cantidadProducto">Cantidad:</p>
-                    <div class="container-buttons">
+                <p class="text-muted pe-0 pe-lg-2">Unidades:</p>
+                    <div class="container-buttons py-2">
                         <button class="border border-primary p-0 bg-primary rounded-circle" id=${idProducto}-minus>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" class="bi bi-dash" viewBox="0 0 16 16">
                                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
@@ -66,20 +66,18 @@ $(function () {
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-danger p-1 ms-2 d-none d-lg-block" id=${idProducto}-delete>
+                    <button class="btn btn-danger p-1 mt-2 mt-lg-0 ms-0 ms-lg-1 w-100" id=${idProducto}-delete>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            fill="#ffffff" class="bi bi-trash" viewBox="0 0 16 16">
+                            fill="#ffffff" class="bi bi-trash d-none d-lg-inline-block" viewBox="0 0 16 16">
                             <path
                                 d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
                             <path fill-rule="evenodd"
                                 d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                         </svg>
+                        <p class="d-block d-lg-none">Eliminar</p>
                     </button>
                 </div>
             </div>
-            <button class="btn btn-danger mt-3 w-100 d-lg-none" id=${idProducto}>
-                        Eliminar
-            </button>
         </div>
     </div>
 </div>
@@ -192,12 +190,15 @@ $(function () {
       </div>  
         <p class="d-none text-danger text-end pt-2 pe-1 fw-bold" id="errorCompra">Error , puntos insuficientes</p>`);
 
-        $("#box-botonPagar").on("click", () => {
+        $("#botonPagar").on("click", () => {
           /* --------------------- Calcular si el monto es correcto para pagar los productos con los puntos al presionar "pagar". --------------------- */
           let montoUsuario = parseInt($("#monto").text());
           let montoFinal = calcularMonto();
           if (montoUsuario - montoFinal < 0) {
-            return $("#errorCompra").removeClass("d-none");
+            $("#errorCompra").removeClass("d-none");
+            return setTimeout(function () {
+              $("#errorCompra").addClass("d-none");
+            }, 1000);
           } else {
             $("#errorCompra").remove();
             $("#monto").text(`${montoUsuario - montoFinal}`);

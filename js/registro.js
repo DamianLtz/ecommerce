@@ -6,7 +6,6 @@ $(function () {
       this.mail = nuevoUsuario.email;
       this.password = nuevoUsuario.password;
       this.puntos = nuevoUsuario.puntos;
-      // Cargar Datos en el HTML acá (en progreso).
     }
   }
 
@@ -63,7 +62,7 @@ $(function () {
     localStorage.setItem("Usuario Logueado", JSON.stringify(usuarioACargar));
   }
 
-  // Guarda la lista en el local storage con la key "Usuarios Registrados".
+  /* -------------------------------- Guarda la lista en el local storage con la key "Usuarios Registrados". -------------------------------- */
 
   function guardarUsuariosEnStorage(datosDeUsuarioRecibidos) {
     localStorage.setItem(
@@ -83,7 +82,7 @@ $(function () {
     password: /^.{4,12}$/, // 4 a 12 digitos.
   };
 
-  /* --------------- Validar Caracteres del formulario y evento al soltar una tecla o salir de una sección del mismo.  --------------- */
+  /* --------------- Validar Caracteres del formulario y eventos al soltar una tecla o salir de una sección del mismo.  --------------- */
 
   const validarFormulario = (e) => {
     if ($("#formulario__invalido")) {
