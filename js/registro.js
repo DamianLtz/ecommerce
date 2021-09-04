@@ -7,6 +7,14 @@ $(function () {
       this.password = nuevoUsuario.password;
       this.puntos = nuevoUsuario.puntos;
     }
+    existeUsuariosStorage() {
+      let existe = false;
+      if (localStorage.getItem("Usuarios Registrados") !== null) {
+        // si NO existe la key "usuarios registrados" , la crea.
+        existe = true;
+      }
+      return existe;
+    }
   }
 
   /* -------------------------------- Verifica si existe la lista en el local storage al hacer "Click". -------------------------------- */
@@ -26,7 +34,9 @@ $(function () {
       email.value !== "" &&
       password.value !== ""
     ) {
-      if (!existeUsuariosStorage()) {
+      /* -------------------------------- Verifica si existe la lista, sino la Crea en el local storage en formato JSON. -------------------------------- */
+
+      if (!nuevoClienteRegistrado.existeUsuariosStorage()) {
         crearUsuarioStorage();
       }
 
@@ -34,16 +44,14 @@ $(function () {
     }
   }
 
-  /* -------------------------------- Verifica si existe la lista sino la Crea en el local storage en formato JSON. -------------------------------- */
-
-  function existeUsuariosStorage() {
-    let existe = false;
-    if (localStorage.getItem("Usuarios Registrados") !== null) {
-      // si NO existe la key "usuarios registrados" , la crea.
-      existe = true;
-    }
-    return existe;
-  }
+  // function existeUsuariosStorage() {
+  //   let existe = false;
+  //   if (localStorage.getItem("Usuarios Registrados") !== null) {
+  //     // si NO existe la key "usuarios registrados" , la crea.
+  //     existe = true;
+  //   }
+  //   return existe;
+  // }
 
   function crearUsuarioStorage() {
     localStorage.setItem("Usuarios Registrados", JSON.stringify([]));
