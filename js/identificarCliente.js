@@ -23,7 +23,7 @@ $(function () {
     $(".shop-cart").removeClass("d-block");
     $("#monto-container").addClass("d-none");
     $("#monto-container").removeClass("d-flex");
-    window.location.href = "../index.html";
+    window.location.href = "index.html";
   }
 
   function identificarClienteLogueado() {

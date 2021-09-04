@@ -100,6 +100,7 @@ $(function () {
 
       $("#searchIcon").on("click", (e) => {
         e.preventDefault();
+        window.scroll(0, 500);
         let resultados = [];
         for (const producto of listaProductos) {
           for (const palabra of producto.title.split(" ")) {

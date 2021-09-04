@@ -17,6 +17,7 @@ $(function () {
                       <h2 class="text-center pt-5">Agrega primero productos a tu carrito para verlos aquí.</h2>
                   </div>`);
   } else {
+    
     // Crea el carrito según los productos seleccionados previamente.
 
     for (const producto of obtenerCarritoUsuario) {

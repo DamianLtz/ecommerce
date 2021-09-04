@@ -18,7 +18,7 @@ $(function () {
             "Usuario Logueado",
             JSON.stringify(usuariosRegistrados[i])
           );
-          return (window.location.href = "../index.html");
+          return (window.location.href = "index.html");
         }
       }
       $("#formulario__invalido").addClass("d-flex");

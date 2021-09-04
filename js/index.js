@@ -46,8 +46,124 @@ $(function () {
         });
       };
 
+      const cargarProductosSegunCategoria = (categoria) => {
+        if (`${categoria.id}` === "Todos") {
+          $("#seccionProductos").html(``).fadeOut(0);
+          $("#titulo-container").html(``);
+          $("#titulo-container").append(`
+            <h2 class="text-nowrap" id="${categoria.name}">${categoria.title}</h2>`);
+          for (const producto of listaProductos) {
+            $("#seccionProductos")
+              .append(
+                `<div class="col-xl-3 col-lg-4 col-md-6 gy-4">
+                    <div class="card position-static text-dark">
+                      <div class="bg-img-container">
+                          <img src=${producto.image} alt=""
+                              class="img-fluid position absolute top-0 p-4">
+                      </div>
+                      <div class="card-body">
+                            <div class="d-flex align-items-center card-descuento-container">
+                                <div class="card-descuento">
+                                    <p>
+                                        - 15% OFF
+                                    </p>
+                                </div>
+                                <p class="text-muted card-precio-anterior">
+                                    ${producto.oldPrice} puntos
+                                </p>
+                            </div>
+                            <h5 class="card-title">${producto.title}</h5>
+                            <p class="text-muted text-truncate py-3">
+                            ${producto.description}
+                            </p>
+                            <div class="d-flex align-items-center card-coins-cost">
+                                <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                                <p class="card-text">${producto.price}</p>
+                            </div>
+                            <button class="btn btn-comprar shadow-none" id=${producto.id}>
+                            Agregar al carrito
+                            </button>
+                            </div>
+                            </div>
+                            </div>`
+              )
+              .fadeIn(500);
+            const usuarioLogueadoExiste = JSON.parse(
+              localStorage.getItem("Usuario Logueado")
+            );
+            if (usuarioLogueadoExiste === null) {
+              $(`#${producto.id}`).remove();
+            }
+            AgregarAlCarrito(producto);
+          }
+        } else {
+          $("#seccionProductos").html(``).fadeOut(0);
+          $("#titulo-container").html(``);
+          $("#titulo-container h2").text(`${categoria.title}`);
+          $("#titulo-container").append(`
+            <h2 class="text-nowrap" id=${categoria.id}-categoria>${categoria.title}</h2>
+            <img src=${categoria.image} alt="" class="ms-3 icon-categoria">`);
+
+          /* --------------------------- Crea los productos según la categoria seleccionada --------------------------- */
+
+          for (const producto of listaProductos) {
+            if (producto.category === `${categoria.id}`) {
+              $("#seccionProductos")
+                .append(
+                  `
+            <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
+            <div class="card position-static text-dark">
+              <div class="bg-img-container">
+                  <img src=${producto.image} alt=""
+                      class="img-fluid position absolute top-0 p-4">
+              </div>
+              <div class="card-body">
+                    <div class="d-flex align-items-center card-descuento-container">
+                        <div class="card-descuento">
+                            <p>
+                                - 15% OFF
+                            </p>
+                        </div>
+                        <p class="text-muted card-precio-anterior">
+                            ${producto.oldPrice} puntos
+                        </p>
+                    </div>
+                    <h5 class="card-title">${producto.title}</h5>
+                    <p class="text-muted text-truncate py-3">
+                    ${producto.description}
+                    </p>
+                    <div class="d-flex align-items-center card-coins-cost">
+                        <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
+                        <p class="card-text">${producto.price}</p>
+                    </div>
+                    <button class="btn btn-comprar shadow-none" id=${producto.id}>
+                    Agregar al carrito
+                    </button>
+                    </div>
+                    </div>
+                    </div>`
+                )
+                .fadeIn(500);
+            }
+            const usuarioLogueadoExiste = JSON.parse(
+              localStorage.getItem("Usuario Logueado")
+            );
+            if (usuarioLogueadoExiste === null) {
+              $(`#${producto.id}`).remove();
+            }
+            AgregarAlCarrito(producto);
+          }
+        }
+      };
       // ----------------------------------------------------- //
       for (const categoria of listaCategorias) {
+        /* ---------------------------- Categorias del Header. ---------------------------- */
+
+        $("#navbarDropdown-category").append(`
+            <li><a class="dropdown-item ${categoria.id}">${categoria.title}</a></li>`);
+
+        /* ---------------------------- Categorias del Main. ---------------------------- */
+
         $(".categorias-container").append(`
         <button href="#" class="btn shadow-none btn-drop-shadow p-0 col-lg-2 col-md-3 col-sm-4 col-xs-6 gy-4 gy-lg-0"
         id=${categoria.id}>
@@ -63,115 +179,19 @@ $(function () {
 
         /* --------------------------- Crea el titulo de las categorias según la categoria seleccionada --------------------------- */
 
+        // En El Header.
+
+        $(`.${categoria.id}`).on("click", (e) => {
+          e.preventDefault();
+          cargarProductosSegunCategoria(categoria);
+          window.scroll(0, 500);
+        });
+
+        // En El Main.
+
         $(`#${categoria.id}`).on("click", (e) => {
           e.preventDefault();
-          if (`${categoria.id}` === "Todos") {
-            $("#seccionProductos").html(``).fadeOut(0);
-            $("#titulo-container").html(``);
-            $("#titulo-container").append(`
-              <h2 class="text-nowrap">${categoria.title}</h2>`);
-            for (const producto of listaProductos) {
-              $("#seccionProductos")
-                .append(
-                  `<div class="col-xl-3 col-lg-4 col-md-6 gy-4">
-                      <div class="card position-static text-dark">
-                        <div class="bg-img-container">
-                            <img src=${producto.image} alt=""
-                                class="img-fluid position absolute top-0 p-4">
-                        </div>
-                        <div class="card-body">
-                              <div class="d-flex align-items-center card-descuento-container">
-                                  <div class="card-descuento">
-                                      <p>
-                                          - 15% OFF
-                                      </p>
-                                  </div>
-                                  <p class="text-muted card-precio-anterior">
-                                      ${producto.oldPrice} puntos
-                                  </p>
-                              </div>
-                              <h5 class="card-title">${producto.title}</h5>
-                              <p class="text-muted text-truncate py-3">
-                              ${producto.description}
-                              </p>
-                              <div class="d-flex align-items-center card-coins-cost">
-                                  <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
-                                  <p class="card-text">${producto.price}</p>
-                              </div>
-                              <button class="btn btn-comprar shadow-none" id=${producto.id}>
-                              Agregar al carrito
-                              </button>
-                              </div>
-                              </div>
-                              </div>`
-                )
-                .fadeIn(500);
-              const usuarioLogueadoExiste = JSON.parse(
-                localStorage.getItem("Usuario Logueado")
-              );
-              if (usuarioLogueadoExiste === null) {
-                $(`#${producto.id}`).remove();
-              }
-              AgregarAlCarrito(producto);
-            }
-          } else {
-            $("#seccionProductos").html(``).fadeOut(0);
-            $("#titulo-container").html(``);
-            $("#titulo-container h2").text(`${categoria.title}`);
-            $("#titulo-container").append(`
-              <h2 class="text-nowrap">${categoria.title}</h2>
-              <img src=${categoria.image} alt="" class="ms-3 icon-categoria">`);
-
-            /* --------------------------- Crea los productos según la categoria seleccionada --------------------------- */
-
-            for (const producto of listaProductos) {
-              if (producto.category === `${categoria.id}`) {
-                $("#seccionProductos")
-                  .append(
-                    `
-              <div class="col-xl-3 col-lg-4 col-md-6 gy-4">
-              <div class="card position-static text-dark">
-                <div class="bg-img-container">
-                    <img src=${producto.image} alt=""
-                        class="img-fluid position absolute top-0 p-4">
-                </div>
-                <div class="card-body">
-                      <div class="d-flex align-items-center card-descuento-container">
-                          <div class="card-descuento">
-                              <p>
-                                  - 15% OFF
-                              </p>
-                          </div>
-                          <p class="text-muted card-precio-anterior">
-                              ${producto.oldPrice} puntos
-                          </p>
-                      </div>
-                      <h5 class="card-title">${producto.title}</h5>
-                      <p class="text-muted text-truncate py-3">
-                      ${producto.description}
-                      </p>
-                      <div class="d-flex align-items-center card-coins-cost">
-                          <img src="assets/img/main/coin.png" alt="" class="img-fluid coin">
-                          <p class="card-text">${producto.price}</p>
-                      </div>
-                      <button class="btn btn-comprar shadow-none" id=${producto.id}>
-                      Agregar al carrito
-                      </button>
-                      </div>
-                      </div>
-                      </div>`
-                  )
-                  .fadeIn(500);
-              }
-              const usuarioLogueadoExiste = JSON.parse(
-                localStorage.getItem("Usuario Logueado")
-              );
-              if (usuarioLogueadoExiste === null) {
-                $(`#${producto.id}`).remove();
-              }
-              AgregarAlCarrito(producto);
-            }
-          }
+          cargarProductosSegunCategoria(categoria);
         });
       }
 

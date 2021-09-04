@@ -152,7 +152,7 @@ $(function () {
       );
       $("#formulario__invalido").removeClass("d-flex");
       $("#formulario__invalido").addClass("d-none");
-      window.location.href = "../index.html";
+      window.location.href = "index.html";
     } else {
       $("#formulario__invalido").addClass("d-flex");
       $("#formulario__invalido").removeClass("d-none");

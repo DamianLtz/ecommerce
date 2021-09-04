@@ -18,7 +18,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 position-fixed fixed-top">
             <div class="container-lg">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <img src="assets/img/header/logo.svg" alt="" class="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -33,33 +33,24 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Categorías
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item disabled" href="#">Accesorios y Perifericos</a></li>
-                                <li><a class="dropdown-item disabled" href="#">Audio</a></li>
-                                <li><a class="dropdown-item disabled" href="#">Celulares</a></li>
-                                <li><a class="dropdown-item disabled" href="#">Electrobelleza</a></li>
-                                <li><a class="dropdown-item disabled" href="#">Hogar</a></li>
-                                <li><a class="dropdown-item disabled" href="#">Notebooks</a></li>
-                                <li><a class="dropdown-item disabled" href="#">Televisores</a></li>
-                                <li><a class="dropdown-item disabled" href="#">Software</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdown-category">
+                                <!-- <li><a class="dropdown-item" href="#">Tecno</a></li> -->
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Beneficios</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#">Soporte</a>
-                        </li> -->
                         <li>
                             <form class="d-flex align-items-center form-style">
                                 <input class="form-control me-2" type="text" placeholder="¿Qué estás buscando?"
                                     aria-label="Search" id="searchInput">
-                                <button class="me-3 border-0 bg-transparent"><img src="assets/img/header/search.svg" alt="" id="searchIcon"></button>
+                                <button class="me-3 border-0 bg-transparent"><img src="assets/img/header/search.svg"
+                                        alt="" id="searchIcon"></button>
                             </form>
                         </li>
                     </ul>
                     <div class="cuenta--container" id="datos-cliente-container">
-                        <a href="carrito.html" class="shop-cart-container">
+                        <a href="carrito.html" class="shop-cart-container bg-transparent border-0" id="test">
                             <img src="assets/img/header/shopping-cart.svg" alt="" class="shop-cart d-none">
                         </a>
                         <div class="d-none align-items-center ms-3" id="monto-container">
@@ -74,7 +65,7 @@
             </div>
         </nav>
     </header>
-    <main class="main-principal">
+    <main class="main-principal" id="main-app">
         <!-- Carousel HomePage -->
         <section>
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -140,13 +131,14 @@
             </div>
         </section>
         <!-- Botones Categorias -->
-        <section class="container-lg mt-5">
+        <section class="container-lg mt-5" id="button-category">
             <div class="row justify-content-md-start justify-content-sm-center categorias-container">
             </div>
         </section>
         <!-- Sección de productos -->
         <section class="container-lg mt-5">
-            <div class="d-flex align-items-center justify-content-lg-start justify-content-center px-lg-4 px-4 pb-4" id="titulo-container">
+            <div class="d-flex align-items-center justify-content-lg-start justify-content-center px-lg-4 px-4 pb-4"
+                id="titulo-container">
                 <h2 class="text-nowrap">Catalogo de productos</h2>
             </div>
             <div class="row justify-content-lg-start justify-content-md-center cards-container" id="seccionProductos">
