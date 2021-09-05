@@ -52,6 +52,7 @@ $(function () {
   //   }
   //   return existe;
   // }
+  // -------------------------------------------------------- //
 
   function crearUsuarioStorage() {
     localStorage.setItem("Usuarios Registrados", JSON.stringify([]));
